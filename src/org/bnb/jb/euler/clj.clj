@@ -1,15 +1,11 @@
-(ns org.bnb.jb.euler.clj)
-
-(require 'clojure.set)
-(refer 'clojure.set)
+(ns org.bnb.jb.euler.clj
+  (:require [org.bnb.jb.euler.clj.numbers :refer :all]))
 
 (defn multiplesOf
   ([n] (multiplesOf n n))
   ([n curr] (cons curr (lazy-seq (multiplesOf n (+ curr n))))))
 
 (defn solve0001 []
-  (apply + (union
-             (set (take-while #(< % 1000) (multiplesOf 3)))
-             (set (take-while #(< % 1000) (multiplesOf 5))))))
+  (apply + (filter #(divisible-by-any? % 3 5) (take-while #(< % 1000) (naturals)))))
 
-(defn -main [] (print (solve0001)))
+(defn -main [] (println (solve0001)))
