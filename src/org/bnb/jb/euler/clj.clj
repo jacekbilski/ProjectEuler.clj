@@ -8,4 +8,7 @@
 (defn solve0001 []
   (apply + (filter #(divisible-by-any? % 3 5) (take-while #(< % 1000) (naturals)))))
 
-(defn -main [] (println (solve0001)))
+(defn solve0002 []
+  (apply + (filter #(divisible-by-any? % 2) (take-while #(< % 4000000) (fibonacci)))))
+
+(defn -main [] (println (solve0002)))
