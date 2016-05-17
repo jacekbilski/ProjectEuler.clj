@@ -2,3 +2,4 @@
 .idea
 *.iml
 .lein-*
+pom.xml
