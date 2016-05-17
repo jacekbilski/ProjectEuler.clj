@@ -11,3 +11,10 @@
 (defn fibonacci
   ([] (fibonacci 0N 1N))
   ([a b] (cons a (lazy-seq (fibonacci b (+ a b))))))
+
+(defn factorize
+  ([x] (factorize x {}))
+  ([x r]
+   (if (= x 1N)
+     r
+     (recur (/ x 2N) (assoc r 2N (+ 1 (get r 2N 0)))))))
