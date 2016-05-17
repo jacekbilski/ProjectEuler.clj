@@ -10,5 +10,3 @@
 
 (defn solve0002 []
   (apply + (filter #(divisible-by-any? % 2) (take-while #(< % 4000000) (fibonacci)))))
-
-(defn -main [] (println (solve0002)))
