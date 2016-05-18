@@ -6,13 +6,13 @@
   (problem))
 
 (deftest problem0001
-  (is (= 233168N (solve-problem solve0001))))
+  (is (= 233168 (solve-problem solve0001))))
 
 (deftest problem0002
-  (is (= 4613732N (solve-problem solve0002))))
+  (is (= 4613732 (solve-problem solve0002))))
 
 (deftest problem0003
-  (is (= 6857N (solve-problem solve0003))))
+  (is (= 6857 (solve-problem solve0003))))
 
 ;(deftest problem0004
 ;  (is (= 906609N (solve-problem solve0004))))
