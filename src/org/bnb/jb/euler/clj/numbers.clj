@@ -12,8 +12,13 @@
   ([] (fibonacci 0 1))
   ([a b] (cons a (lazy-seq (fibonacci b (+ a b))))))
 
+(defn primes
+  ([] (primes (rest (rest (naturals)))))
+  ([s] (let [curr (first s)]
+         (cons curr (lazy-seq (primes (filter #(> (mod % curr) 0) (rest s))))))))
+
 (defn factorize
-  ([x] (factorize x (rest (rest (naturals))) {}))
+  ([x] (factorize x (rest (rest (primes))) {}))
   ([x primes r]
    (if (= x 1)
      r
