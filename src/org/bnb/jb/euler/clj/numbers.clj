@@ -13,8 +13,11 @@
   ([a b] (cons a (lazy-seq (fibonacci b (+ a b))))))
 
 (defn factorize
-  ([x] (factorize x {}))
-  ([x r]
+  ([x] (factorize x (rest (rest (naturals))) {}))
+  ([x primes r]
    (if (= x 1N)
      r
-     (recur (/ x 2N) (assoc r 2N (+ 1 (get r 2N 0)))))))
+     (let [curr (first primes)]
+       (if (divisible-by-any? x curr)
+         (recur (/ x curr) primes (assoc r curr (+ 1 (get r curr 0))))
+         (recur x (rest primes) r))))))
