@@ -9,3 +9,11 @@
 
 (defn solve0003 []
   (apply max (keys (factorize 600851475143))))
+
+(defn solve0005 []
+  (reduce-kv
+    #(* %1 (pow %2 %3))
+    1
+    (reduce
+      (partial merge-with max)
+      (map factorize (take 20 (rest naturals))))))

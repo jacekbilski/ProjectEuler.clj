@@ -16,10 +16,10 @@
 
 ;(deftest problem0004
 ;  (is (= 906609N (solve-problem solve0004))))
-;
-;(deftest problem0005
-;  (is (= 232792560N (solve-problem solve0005))))
-;
+
+(deftest problem0005
+  (is (= 232792560 (solve-problem solve0005))))
+
 ;(deftest problem0006
 ;  (is (= 25164150N (solve-problem solve0006))))
 ;

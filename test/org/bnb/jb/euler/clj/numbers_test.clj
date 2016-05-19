@@ -11,3 +11,6 @@
 
 (deftest primes-test
   (is (= '(2 3 5 7 11 13 17 19 23 29) (take 10 primes))))
+
+(deftest pow-test
+  (is (= 4 (pow 2 2))))
