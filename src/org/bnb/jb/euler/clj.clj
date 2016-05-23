@@ -17,3 +17,8 @@
     (reduce
       (partial merge-with max)
       (map factorize (take 20 (rest naturals))))))
+
+(defn solve0006 []
+  (-
+    (pow (apply + (take 101 naturals)) 2)
+    (apply + (map #(pow % 2) (take 101 naturals)))))

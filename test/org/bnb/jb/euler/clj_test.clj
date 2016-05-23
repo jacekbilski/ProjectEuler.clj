@@ -20,9 +20,9 @@
 (deftest problem0005
   (is (= 232792560 (solve-problem solve0005))))
 
-;(deftest problem0006
-;  (is (= 25164150N (solve-problem solve0006))))
-;
+(deftest problem0006
+  (is (= 25164150 (solve-problem solve0006))))
+
 ;(deftest problem0007
 ;  (is (= 104743N (solve-problem solve0007))))
 ;
