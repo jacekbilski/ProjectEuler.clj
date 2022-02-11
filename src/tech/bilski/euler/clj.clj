@@ -1,5 +1,5 @@
-(ns org.bnb.jb.euler.clj
-  (:require [org.bnb.jb.euler.clj.numbers :refer :all]))
+(ns tech.bilski.euler.clj
+  (:require [tech.bilski.euler.clj.numbers :refer :all]))
 
 (defn solve0001 []
   (apply + (filter #(divisible-by-any? % 3 5) (take-while #(< % 1000) naturals))))

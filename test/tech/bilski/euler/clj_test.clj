@@ -1,6 +1,6 @@
-(ns org.bnb.jb.euler.clj-test
+(ns tech.bilski.euler.clj-test
   (:require [clojure.test :refer :all]
-            [org.bnb.jb.euler.clj :refer :all]))
+            [tech.bilski.euler.clj :refer :all]))
 
 (defn solve-problem [problem]
   (problem))

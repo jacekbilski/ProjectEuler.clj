@@ -1,4 +1,4 @@
-(ns org.bnb.jb.euler.clj.numbers)
+(ns tech.bilski.euler.clj.numbers)
 
 (def naturals (iterate inc 0))
 

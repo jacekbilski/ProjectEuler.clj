@@ -1,6 +1,6 @@
-(ns org.bnb.jb.euler.clj.numbers-test
+(ns tech.bilski.euler.clj.numbers-test
   (:require [clojure.test :refer :all]
-            [org.bnb.jb.euler.clj.numbers :refer :all]))
+            [tech.bilski.euler.clj.numbers :refer :all]))
 
 (deftest factorize-test
   (is (= {2 1} (factorize 2)))
