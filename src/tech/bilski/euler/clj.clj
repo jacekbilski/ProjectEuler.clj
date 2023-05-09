@@ -10,6 +10,16 @@
 (defn solve0003 []
   (apply max (keys (factorize 600851475143))))
 
+(defn solve0004 []
+  (defn palindrome? [n]
+    (let [s (.toString n)] (= s (apply str (reverse s)))))
+  (->> (for [a (range 999 99 -1)
+            b (range a 99 -1)
+            :when (palindrome? (* a b))]
+        (* a b))
+      (apply max))
+  )
+
 (defn solve0005 []
   (reduce-kv
     #(* %1 (pow %2 %3))

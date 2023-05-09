@@ -14,8 +14,8 @@
 (deftest problem0003
   (is (= 6857 (solve-problem solve0003))))
 
-;(deftest problem0004
-;  (is (= 906609N (solve-problem solve0004))))
+(deftest problem0004
+  (is (= 906609 (solve-problem solve0004))))
 
 (deftest problem0005
   (is (= 232792560 (solve-problem solve0005))))
