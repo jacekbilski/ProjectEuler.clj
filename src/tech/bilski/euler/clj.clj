@@ -2,13 +2,21 @@
   (:require [tech.bilski.euler.clj.numbers :refer :all]))
 
 (defn solve0001 []
-  (apply + (filter #(divisible-by-any? % 3 5) (take-while #(< % 1000) naturals))))
+  (->> naturals
+       (take-while #(< % 1000))
+       (filter #(divisible-by-any? % 3 5))
+       (apply +)))
 
 (defn solve0002 []
-  (apply + (filter #(divisible-by-any? % 2) (take-while #(< % 4000000) fibonacci))))
+  (->> fibonacci
+       (take-while #(< % 4000000))
+       (filter #(divisible? % 2))
+       (apply +)))
 
 (defn solve0003 []
-  (apply max (keys (factorize 600851475143))))
+  (->> (factorize 600851475143)
+       keys
+       (apply max)))
 
 (defn solve0004 []
   (defn palindrome? [n]

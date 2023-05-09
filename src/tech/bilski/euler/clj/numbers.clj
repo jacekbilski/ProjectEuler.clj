@@ -2,9 +2,9 @@
 
 (def naturals (iterate inc 0))
 
-(defn divisible-by-any?
-  ([n d1] (zero? (mod n d1)))
-  ([n d1 d2] (or (zero? (mod n d1)) (zero? (mod n d2)))))
+(defn divisible? [n d] (zero? (mod n d)))
+
+(defn divisible-by-any? [n d1 d2] (or (divisible? n d1) (divisible? n d2)))
 
 (defn fibonacci-fn [a b]
   (cons a (lazy-seq (fibonacci-fn b (+ a b)))))
@@ -13,7 +13,10 @@
 
 (defn primes-fn [s]
   (let [curr (first s)]
-    (cons curr (lazy-seq (primes-fn (filter #(not= 0 (mod % curr)) (rest s)))))))
+    (cons curr (->> (rest s)
+                    (filter #(not= 0 (mod % curr)))
+                    primes-fn
+                    lazy-seq))))
 
 (def primes (primes-fn (drop 2 naturals)))
 
@@ -23,8 +26,8 @@
    (if (= x 1)
      res
      (let [curr (first factors)]
-       (if (divisible-by-any? x curr)
-         (recur (/ x curr) factors (assoc res curr (+ 1 (get res curr 0))))
+       (if (divisible? x curr)
+         (recur (/ x curr) factors (assoc res curr (inc (get res curr 0))))
          (recur x (rest factors) res))))))
 
 (defn pow
