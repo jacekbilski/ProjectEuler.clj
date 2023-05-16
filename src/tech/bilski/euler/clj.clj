@@ -22,10 +22,10 @@
   (defn palindrome? [n]
     (let [s (.toString n)] (= s (apply str (reverse s)))))
   (->> (for [a (range 999 99 -1)
-            b (range a 99 -1)
-            :when (palindrome? (* a b))]
-        (* a b))
-      (apply max))
+             b (range a 99 -1)
+             :when (palindrome? (* a b))]
+         (* a b))
+       (apply max))
   )
 
 (defn solve0005 []
@@ -40,3 +40,13 @@
   (-
     (pow (apply + (take 101 naturals)) 2)
     (apply + (map #(pow % 2) (take 101 naturals)))))
+
+(defn solve0009 []
+  (let [s 1000]
+    (->> (for [a (range 3 (/ (- s 3) 3))
+               b (range (+ a 1) (/ (- s 1 a) 2))
+               :let [c (- s a b)]
+               :when (= (pow c 2) (+ (pow a 2) (pow b 2)))]
+           (* a b c))
+         first))
+  )

@@ -28,10 +28,10 @@
 ;
 ;(deftest problem0008
 ;  (is (= 40824N (solve-problem solve0008))))
-;
-;(deftest problem0009
-;  (is (= 31875000N (solve-problem solve0009))))
-;
+
+(deftest problem0009
+  (is (= 31875000 (solve-problem solve0009))))
+
 ;(defn problem0010
 ;  (is (= 142913828922N (solve-problem solve0010))))
 ;
