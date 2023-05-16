@@ -3,15 +3,15 @@
             [tech.bilski.euler.clj.numbers :refer :all]))
 
 (deftest factorize-test
-  (is (= {2 1} (factorize 2)))
-  (is (= {2 2} (factorize 4)))
-  (is (= {3 1} (factorize 3)))
-  (is (= {2 1, 3 1} (factorize 6)))
-  (is (= {5 1, 7 1, 13 1, 29 1} (factorize 13195)))
-  (is (= {5 3, 7 1, 13 2} (factorize 147875))))
+  (is (= (factorize 2) {2 1}))
+  (is (= (factorize 4) {2 2}))
+  (is (= (factorize 3) {3 1}))
+  (is (= (factorize 6) {2 1, 3 1}))
+  (is (= (factorize 13195) {5 1, 7 1, 13 1, 29 1}))
+  (is (= (factorize 147875) {5 3, 7 1, 13 2})))
 
 (deftest primes-test
-  (is (= '(2 3 5 7 11 13 17 19 23 29) (take 10 primes))))
+  (is (= (take 10 primes) '(2 3 5 7 11 13 17 19 23 29))))
 
 (deftest pow-test
-  (is (= 4 (pow 2 2))))
+  (is (= (pow 2 2) 4)))
