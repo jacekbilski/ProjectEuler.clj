@@ -35,3 +35,10 @@
   ([acc a b] (if (> b 0)
                (recur (* acc a) a (dec b))
                acc)))
+
+(defn gcd "greatest common divisor" [a b]
+  (if (= b 0)
+    a
+    (if (> a b)
+      (recur b (mod a b))
+      (recur a (mod b a)))))

@@ -15,3 +15,11 @@
 
 (deftest pow-test
   (is (= (pow 2 2) 4)))
+
+(deftest gcd-test
+  (is (= (gcd 1 1) 1))
+  (is (= (gcd 1 2) 1))
+  (is (= (gcd 4 2) 2))
+  (is (= (gcd 48 18) 6))
+  (is (= (gcd 18 48) 6))
+  (is (= (gcd 17 5) 1)))
