@@ -42,11 +42,22 @@
     (apply + (map #(pow % 2) (take 101 naturals)))))
 
 (defn solve0009 []
-  (let [s 1000]
-    (->> (for [a (range 3 (/ (- s 3) 3))
-               b (range (+ a 1) (/ (- s 1 a) 2))
-               :let [c (- s a b)]
-               :when (= (pow c 2) (+ (pow a 2) (pow b 2)))]
+  ; this almost exactly implements the algorithm described in https://projecteuler.net/overview=0009
+  (let [s 1000
+        s2 (/ s 2)
+        m-limit (- (Math/ceil (Math/sqrt s2)) 1)]
+    (->> (for [m (range 2 m-limit)
+               :when (= 0 (mod s2 m))
+               :let [sm (/ s2 m)
+                     k-start (if (= (mod m 2) 1) (+ m 2) (+ m 1))]
+               k (range k-start s 2)
+               :while (and (< k (* 2 m)) (<= k sm))
+               :when (and (= (mod sm k) 0) (= (gcd k m) 1))
+               :let [d (/ s2 (* k m))
+                     n (- k m)
+                     a (* d (- (pow m 2) (pow n 2)))
+                     b (* 2 d m n)
+                     c (* d (+ (pow m 2) (pow n 2)))]]
            (* a b c))
          first))
   )
